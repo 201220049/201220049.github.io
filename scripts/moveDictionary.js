@@ -5404,9 +5404,19 @@ move.morningSun = {
     hitEffect: function(target) { changeWeather("sunny"); moveBuff(target,'satkup1',"self") },
 }
 
+move.GmaxVoltCrash = { 
+    split: "physical",
+    type: "electric",
+    power: 140,
+    info: function() {return `Inflicts ${tagParalysis} Attack becomes physical or special to match the highest stat of the user`},
+    castEffect: function(target) {
+    if (pkmn[ team[exploreActiveMember].pkmn.id ].bst.atk>pkmn[ team[exploreActiveMember].pkmn.id ].bst.satk){
+        this.split = "physical"
+    } else this.split = "special"
+    },
+    hitEffect: function(target) { moveBuff(target,'paralysis') },
 
-
-
+}
 
 
 const movesAffectedByToughClaws = []

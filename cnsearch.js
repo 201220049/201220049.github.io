@@ -2061,6 +2061,7 @@
         "String Shot": "吐丝",
         "X Scissor": "十字剪",
         "Spectral Thief": "暗影偷盗",
+        "G-Max Volt Crash": "超极巨万雷轰顶",
         //道具
         //携带物
         "Black Belt": "黑带",

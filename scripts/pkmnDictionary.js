@@ -631,7 +631,7 @@ pkmn.pikachuGmax = {
         sdef: 90,
         spe: 110,
     },
-    signature : move.voltTackle,
+    signature : move.GmaxVoltCrash,
     hiddenAbility: ability.electricSurge,
 }
 
@@ -7017,7 +7017,7 @@ pkmn.megaMawile = {
         sdef: 95,
         spe: 50,
     },
-    hiddenAbility: ability.strongJaw,
+    hiddenAbility: ability.unaware,
 }
 
 // 304 Aron → Lairon → Aggron
