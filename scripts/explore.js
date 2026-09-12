@@ -71,32 +71,6 @@ function voidAnimation(divName, animationName) {
 
 function format(input) {
     let str = String(input);
-    let kind;
-    if (move[input]?.rename) str = String(move[input].rename);
-    if (pkmn[input]?.rename) str = String(pkmn[input].rename);
-    if (ability[input]?.rename) str = String(ability[input].rename);
-    if (item[input]?.rename) str = String(item[input].rename);
-    if (field[input]?.rename) str = String(field[input].rename);
-
-    if (move[input]) kind = "move";
-    else if (pkmn[input]) kind = "pokemon";
-    else if (ability[input]) kind = "ability";
-    else if (item[input]) kind = "item";
-    else if (field[input]) kind = "field";
-
-    str = str.replace(/hisuian/gi, 'hsn. ');
-    str = str.replace(/alolan/gi, 'aln. ');
-
-    const formatted = str
-        .replace(/([a-z])([A-Z])/g, '$1 $2')
-        .replace(/\b\w/g, c => c.toUpperCase())
-        .replace(/Mega /gi, 'M. ');
-
-    return window.UltraLocale?.formatName?.(input, formatted, kind) || formatted;
-}
-
-function formatAsset(input) {
-    let str = String(input);
     if (move[input]?.rename) str = String(move[input].rename);
     if (pkmn[input]?.rename) str = String(pkmn[input].rename);
     if (ability[input]?.rename) str = String(ability[input].rename);
@@ -206,7 +180,6 @@ let wildPkmnHpMax;
 let wildLevel = 0
 
 let currentTrainerSlot = 1
-let battleDefeatCounter = 0
 
 let currentTrainingWave = 0
 
@@ -683,7 +656,7 @@ function updateItemsGot(){
         divItem.dataset.item = i
 
         if (item[i].type !== "tm") divItem.innerHTML = `<img src="img/items/${i}.png"> <span>x${item[i].newItem}</span>`;
-        if (item[i].type == "tm") divItem.innerHTML = `<img src="img/items/tm${formatAsset(move[item[i].move].type)}.png"> <span>x${item[i].newItem}</span>`;
+        if (item[i].type == "tm") divItem.innerHTML = `<img src="img/items/tm${format(move[item[i].move].type)}.png"> <span>x${item[i].newItem}</span>`;
 
 
         document.getElementById("explore-drops").appendChild(divItem);
@@ -1034,7 +1007,7 @@ function leaveCombat(){
         divItem.className = "area-end-item";
         divItem.dataset.item = i
         if (item[i].type !== "tm") divItem.innerHTML = `<img src="img/items/${i}.png"><span>+${item[i].newItem}</span>`;
-        if (item[i].type == "tm") divItem.innerHTML = `<img src="img/items/tm${formatAsset(move[item[i].move].type)}.png"><span>+${item[i].newItem}</span>`;
+        if (item[i].type == "tm") divItem.innerHTML = `<img src="img/items/tm${format(move[item[i].move].type)}.png"><span>+${item[i].newItem}</span>`;
         document.getElementById("area-end-item-list").appendChild(divItem);
 
         item[i].newItem = 0;
@@ -1515,15 +1488,6 @@ for (let i = activeBars; i < hpBars.length; i++) {
   hpBars[i].el.style.display = "none";
 }
 
-    if (window.UltraMods) {
-        UltraMods.runHook("afterWildHpUpdate", {
-            hp: wildPkmnHp,
-            maxHp: wildPkmnHpMax,
-            percent: percent,
-            target: saved.currentPkmn
-        });
-    }
-
 
 
 
@@ -1540,20 +1504,6 @@ for (let i = activeBars; i < hpBars.length; i++) {
 
 
     if (afkSeconds>0) afkSeconds-- //account for the lack of timer respawn
-
-    battleDefeatCounter++
-    if (window.UltraMods) {
-        UltraMods.runHook("afterEnemyDefeated", {
-            defeatIndex: battleDefeatCounter,
-            areaId: saved.currentArea,
-            targetPokemonId: saved.currentPkmn,
-            targetLevel: wildLevel,
-            killerSlot: exploreActiveMember,
-            killerPokemonId: team[exploreActiveMember]?.pkmn?.id,
-            trainer: areas[saved.currentArea]?.trainer === true,
-            trainerSlot: currentTrainerSlot
-        });
-    }
 
 
 
@@ -1989,13 +1939,6 @@ function updateTeamPkmn(){
     }
 
 
-        if (window.UltraMods) {
-            UltraMods.runHook("afterTeamHpUpdate", {
-                activeSlot: exploreActiveMember
-            });
-        }
-
-
         if ( saved.currentArea !== undefined &&
         (team?.slot6?.pkmn?.id === undefined || pkmn[ team.slot6.pkmn?.id ].playerHp <= 0) &&
         (team?.slot5?.pkmn?.id === undefined || pkmn[ team.slot5.pkmn?.id ].playerHp <= 0) &&
@@ -2314,9 +2257,6 @@ const statusBuffs = ['burn', 'freeze', 'confused', 'paralysis', 'poisoned', 'sle
 
 
 let exploreActiveMember = 'slot1'
-window.exploreActiveMember = exploreActiveMember;
-window.team = team;
-
 let exploreCombatPlayerTurn = 1
 let barProgressPlayer = 0;
 let nextMoveBoxPlayer;
@@ -3070,18 +3010,6 @@ function exploreCombatPlayer() {
         }
 
 
-
-        const damageAppliedToWild = Math.max(0, Math.min(totalPower, wildPkmnHp));
-        if (window.UltraMods) {
-            UltraMods.runHook("afterPlayerDamage", {
-                damage: damageAppliedToWild,
-                rawDamage: totalPower,
-                moveId: nextMove?.id,
-                type: moveType,
-                slot: exploreActiveMember,
-                target: saved.currentPkmn
-            });
-        }
 
         wildPkmnHp -= totalPower;
 
@@ -3957,17 +3885,6 @@ function exploreCombatWild() {
         if (testAbility(`active`,  ability.wonderGuard.id) && typeMultiplier<=1) totalPower*=0.2
 
 
-        const damageAppliedToPlayer = Math.max(0, Math.min(totalPower, pkmn[ team[exploreActiveMember].pkmn.id ].playerHp));
-        if (window.UltraMods) {
-            UltraMods.runHook("afterWildDamage", {
-                damage: damageAppliedToPlayer,
-                rawDamage: totalPower,
-                moveId: nextMoveWild,
-                type: move[nextMoveWild]?.type,
-                slot: exploreActiveMember,
-                target: team[exploreActiveMember].pkmn.id
-            });
-        }
 
 
         pkmn[ team[exploreActiveMember].pkmn.id ].playerHp -= totalPower;
@@ -4021,10 +3938,6 @@ function initialiseArea(){
 
 
     zCrystalTurn = 0
-    battleDefeatCounter = 0
-    if (window.UltraMods) {
-        UltraMods.runHook("onCombatStart", { areaId: saved.currentArea });
-    }
     for (const i in pkmn) if (pkmn[i].battling) pkmn[i].battling=undefined
 
     for (const slot in team) {
@@ -5574,15 +5487,10 @@ if (document.getElementById("pokedex-search").value!="") {
 
         if (itemToUse != undefined) {
 
-            const modItemUseResults = window.UltraMods
-                ? UltraMods.runHook("onItemTarget", { itemId: itemToUse, pokemonId: i, element: div })
-                : [];
-            if (modItemUseResults.some(result => result === "hide" || result?.hide === true)) continue;
-            const itemUseHandledByMod = modItemUseResults.some(result => result === "handled" || result?.handled === true);
 
 
             
-            if (!itemUseHandledByMod && itemToUse == item.rareCandy.id){
+            if (itemToUse == item.rareCandy.id){
                 if (pkmn[i].level >= 100) continue
 
                 div.addEventListener("click", e => { 
@@ -5616,7 +5524,7 @@ if (document.getElementById("pokedex-search").value!="") {
                 
             }
 
-            if (!itemUseHandledByMod && itemToUse == item.heartScale.id){
+            if (itemToUse == item.heartScale.id){
                 if (pkmn[i].movepoolMemory == undefined || pkmn[i].movepoolMemory.length==0) continue
 
                 div.addEventListener("click", e => {
@@ -5692,7 +5600,7 @@ if (document.getElementById("pokedex-search").value!="") {
             }
 
 
-            if (!itemUseHandledByMod && itemToUse == item.neutralMint.id){
+            if (itemToUse == item.neutralMint.id){
                 if (pkmn[i].nature == undefined) continue
 
                 div.addEventListener("click", e => { 
@@ -5711,7 +5619,7 @@ if (document.getElementById("pokedex-search").value!="") {
             }
 
 
-            if (!itemUseHandledByMod && itemToUse == item.abilityCapsule.id){
+            if (itemToUse == item.abilityCapsule.id){
                 if (pkmn[i].hiddenAbility == undefined) continue
                 if (pkmn[i].hiddenAbilityUnlocked == true) continue
 
@@ -5731,7 +5639,7 @@ if (document.getElementById("pokedex-search").value!="") {
             }
 
 
-            if (!itemUseHandledByMod && item[itemToUse].type == "decor"){
+            if (item[itemToUse].type == "decor"){
 
                 if (pkmn[i].decorOwned?.includes(itemToUse)) continue
 
@@ -5753,7 +5661,7 @@ if (document.getElementById("pokedex-search").value!="") {
             }
 
                 
-            if (!itemUseHandledByMod && itemToUse == item.abilityPatch.id){
+            if (itemToUse == item.abilityPatch.id){
 
                 div.addEventListener("click", e => { 
 
@@ -6691,7 +6599,7 @@ function updateItemBag(){
 
 
         div.dataset.item = i
-        if (item[i].type == "tm") div.innerHTML = `<img src="img/items/tm${formatAsset(move[item[i].move].type)}.png"> <span class="item-list-name">${format(i)} ${subtitle}<strong style="opacity:0.6; font-weight:200; white-space:nowrap; font-size:0.9rem; margin-left:0.2rem"> (${move[item[i].move].power} BP, ${format(move[item[i].move].split).slice(0, 3)})</strong> </span>  <span>x${item[i].got}</span>`
+        if (item[i].type == "tm") div.innerHTML = `<img src="img/items/tm${format(move[item[i].move].type)}.png"> <span class="item-list-name">${format(i)} ${subtitle}<strong style="opacity:0.6; font-weight:200; white-space:nowrap; font-size:0.9rem; margin-left:0.2rem"> (${move[item[i].move].power} BP, ${format(move[item[i].move].split).slice(0, 3)})</strong> </span>  <span>x${item[i].got}</span>`
         else if (item[i].type == "memory") div.innerHTML = `<img src="img/items/${item[i].image}Memory.png"> <span class="item-list-name">${format(i)} ${subtitle}</span> <span>x${item[i].got}</span>`
         else if (item[i].type == "decor") div.innerHTML = `<img src="img/decor/${i}.png" style="scale:1; margin:0 -1rem"> <span class="item-list-name">${format(i)} ${subtitle}</span> <span>x${item[i].got}</span>`
         else div.innerHTML = `<img src="img/items/${i}.png"> <span class="item-list-name">${format(i)} ${subtitle}</span> <span>x${item[i].got}</span>`
@@ -9489,13 +9397,6 @@ for (const item of indexedTeam){
     document.getElementById(`battle-summary-bar-${i}`).style.width = percent+"%"
     document.getElementById(`battle-summary-bar-${i}`).innerHTML = `<text>${Math.round(team[i].damageDealt).toLocaleString('es-ES')} (${percent.toFixed(0)}%)</text>`
 }
-    if (window.UltraMods) {
-        UltraMods.runHook("afterBattleSummaryRender", {
-            container: document.getElementById("battle-summary-flex"),
-            indexedTeam,
-            totalDamageDealt
-        });
-    }
     openTooltip()
 
 
@@ -10251,9 +10152,10 @@ saved.lastDimensionRotation = 1
 
 function assignMegaDimension(){
 
+
+
     for (const i in areas){
         if (areas[i].type != "dimensionBlueprint") continue
-        if (areas[i].rotation != rotationDimensionCurrent) continue
 
         areas[`dimensionRaid`+areas[i].tier].difficulty = areas[i].difficulty
         areas[`dimensionRaid`+areas[i].tier].level = areas[i].level
@@ -10324,6 +10226,7 @@ function assignMegaDimension(){
 
 
 }
+
 
 
 function updateMegaDimension(tier){
@@ -10613,9 +10516,6 @@ window.addEventListener('load', function() {
 
 
     loadGame();
-    if (saved.language === undefined) saved.language = window.UltraLocale?.getLanguage?.() || "en";
-    window.UltraLocale?.applyStaticTranslations?.();
-    if (typeof setGuide === "function") setGuide();
     getSeed();
     seasonCheck();
 

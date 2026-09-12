@@ -87,16 +87,6 @@
         return typeof returnTypeColor === "function" ? returnTypeColor(key) : "#ffffff";
     }
 
-    function getAppBaseUrl() {
-        const script = document.currentScript
-            || Array.from(document.scripts).find(element => element.src.includes("scripts/PR/movesetGenerator.js"));
-
-        if (script?.src) return new URL("../../", script.src).href;
-        return new URL("./", document.baseURI).href;
-    }
-
-    const APP_BASE_URL = getAppBaseUrl();
-
     // --- 3. Icon Handling ---
 
     /**
@@ -143,7 +133,7 @@
      * @returns {Promise<string>} The HTML string.
      */
     async function loadSVGIcon(name, color = "#fff", size = 18) {
-        const path = new URL(`img/icons/${name}.svg`, APP_BASE_URL).href;
+        const path = `img/icons/${name}.svg`;
         if (ICON_CACHE[path]) {
             return wrapSVG(ICON_CACHE[path], color, size);
         }
