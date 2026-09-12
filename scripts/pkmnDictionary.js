@@ -14997,7 +14997,7 @@ pkmn.megaDiancie = {
         satk: 160,
         sdef: 110,
         spe: 110,
-    }
+    },
     hiddenAbility: ability.magicBounce,
     signature : move.diamondStorm
 }
