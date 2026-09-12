@@ -710,7 +710,7 @@
         [/^(\d+)% chance to decrease enemy (.+) by (\d+)%/i,
         '有 $1% 概率使对手的$2降低 $3%'],
         [/^Attacks x([\d\.]+) slower than usual. Power increases by x([\d\.]+)-([\d\.]+) if (.+)\/(.+) is risen/i,
-        '此招式的出招速度慢 $1 倍。如果$4或$5提高 100%, 招式威力 x$2。提高 50% 则招式威力 x$3'],
+        '此招式的出招速度慢 $1 倍。如果$4或$5提高 100%, 招式威力 x$3。提高 50% 则招式威力 x$2'],
         [/^Power doubles if the user is not holding any item/i,
         '自身未携带道具时, 招式威力加倍'],
         [/^Increases (.+) by (\d+)% to the entire team. Attacks x([\d\.]+) slower than usual/i,
