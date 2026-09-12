@@ -631,7 +631,7 @@ pkmn.pikachuGmax = {
         sdef: 90,
         spe: 110,
     },
-    signature : move.GmaxVoltCrash,
+    signature : move.gMaxVoltCrash,
     hiddenAbility: ability.electricSurge,
 }
 
