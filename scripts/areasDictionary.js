@@ -1672,7 +1672,7 @@ areas.sunkenTempleIII = {
 
 
 
-const rotationEventMax = 6;
+const rotationEventMax = 7;
 const tier1difficulty = 25;
 const tier2difficulty = 70;
 const tier3difficulty = 200;
@@ -4051,6 +4051,349 @@ areas.eventMegaAlakazam = {
     category: 1,
 }
 
+//////////
+
+//rotation 7
+
+
+areas.sereneSky = {
+    rotation: 7,
+    type: `event`,
+    background : `empty`,
+    level : wildAreaLevel1,
+    icon: pkmn.castform,
+    spawns: {
+        common : [pkmn.castform],
+        rare : [pkmn.castformSunny, pkmn.castformRainy, pkmn.castformSnowy]
+    },
+    drops: {
+        common : [item.mysteryEgg],
+        rare : [item.silkScarf],
+    },
+    category: 1,
+}
+
+
+areas.aromaticMeadow = {
+    rotation: 7,
+    type: `event`,
+    background : `route`,
+    level : 90,
+    icon: pkmn.alcremie,
+    uncatchable: true,
+    unlockDescription : `Defeat Elite Trainer Cynthia in VS to unlock`,
+    unlockRequirement : function() { return areas.vsEliteTrainerCynthia.defeated },
+    spawns: {
+        common : [pkmn.florges,pkmn.hatterene,pkmn.tsareena,pkmn.alcremie],
+    },
+    drops: {
+        common : [item.nothing],
+        uncommon : [item.sachet]
+    },
+    category: 1,
+}
+
+
+areas.eventMeloetta = {
+    rotation: 7,
+    type: `event`,
+    name: `Nature Concert`,
+    background : `forest`,
+    icon: pkmn.meloetta,
+    trainer: true,
+    encounter: true,
+    difficulty: tier1difficulty,
+    encounterEffect : function() {item.sachet.got--},
+    unlockDescription : `Requires a <img src="img/items/sachet.png"> Sachet to enter`,
+    unlockRequirement : function() { return item.sachet.got>0 },
+    level : 100,
+    team : {
+        slot1 : pkmn.meloetta,
+        slot1Moves : [move.growl.id,move.relicSong.id, move.psychic.id, move.echoedVoice.id],
+    },
+    reward : [pkmn.meloetta],
+    category: 1,
+}
+
+areas.eventMeloettaP = {
+    rotation: 7,
+    type: `event`,
+    name: `Nature Ball`,
+    background : `forest`,
+    icon: pkmn.meloettaPirouette,
+    trainer: true,
+    encounter: true,
+    difficulty: tier1difficulty,
+    encounterEffect : function() {item.sachet.got--},
+    unlockDescription : `Requires a <img src="img/items/sachet.png"> Sachet to enter`,
+    unlockRequirement : function() { return item.sachet.got>0 },
+    level : 100,
+    team : {
+        slot1 : pkmn.meloettaPirouette,
+        slot1Moves : [move.leer.id,move.wakeupSlap.id, move.powerupPunch.id, move.zenHeadbut.id],
+    },
+    reward : [pkmn.meloettaPirouette],
+    category: 1,
+}
+
+areas.eventMegaLopunny = {
+    rotation: 7,
+    type: `event`,
+    name: `Lopunny Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaLopunny,
+    trainer: true,
+    encounter: true,
+    difficulty: tier1difficulty,
+    encounterEffect : function() {item.sachet.got--},
+    unlockDescription : `Requires a <img src="img/items/sachet.png"> Sachet to enter`,
+    unlockRequirement : function() { return item.sachet.got>0 },
+    level : 100,
+    team : {
+        slot1 : pkmn.megaLopunny,
+        slot1Moves : [move.bulkUp.id,move.extremeSpeed.id, move.hiJumpKick.id, move.knockOff.id],
+    },
+    reward : [item.lopunnite, pkmn.buneary],
+    category: 1,
+}
+
+
+areas.eventMegaAmpharos = {
+    rotation: 7,
+    type: `event`,
+    name: `Ampharos Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaAmpharos,
+    trainer: true,
+    encounter: true,
+    difficulty: tier2difficulty,
+    encounterEffect : function() {item.sachet.got-=3},
+    unlockDescription : `Requires x3 <img src="img/items/sachet.png"> Sachet to enter`,
+    unlockRequirement : function() { return item.sachet.got>2 },
+    level : 110,
+    team : {
+        slot1 : pkmn.megaAmpharos,
+        slot1Moves : [move.electricTerrain.id,move.zapCannon.id, move.flashCannon.id, move.dragonPulse.id],
+    },
+    reward : [item.ampharosite, pkmn.mareep],
+    category: 1,
+}
+
+
+areas.eventMegaAudino = {
+    rotation: 7,
+    type: `event`,
+    name: `Audino Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaAudino,
+    trainer: true,
+    encounter: true,
+    difficulty: tier2difficulty,
+    encounterEffect : function() {item.sachet.got-=3},
+    unlockDescription : `Requires x3 <img src="img/items/sachet.png"> Sachet to enter`,
+    unlockRequirement : function() { return item.sachet.got>2 },
+    level : 110,
+    team : {
+        slot1 : pkmn.megaAudino,
+        slot1Moves : [move.acupressure.id,move.hyperBeam.id, move.moonblast.id, move.lightScreen.id],
+    },
+    reward : [item.audinite, pkmn.audino],
+    category: 1,
+}
+
+
+areas.eventMegaBanette = {
+    rotation: 7,
+    type: `event`,
+    name: `Banette Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaBanette,
+    trainer: true,
+    encounter: true,
+    difficulty: tier2difficulty,
+    encounterEffect : function() {item.sachet.got-=3},
+    unlockDescription : `Requires x3 <img src="img/items/sachet.png"> Sachet to enter`,
+    unlockRequirement : function() { return item.sachet.got>2 },
+    level : 110,
+    team : {
+        slot1 : pkmn.megaBanette,
+        slot1Moves : [move.swordsDance.id,move.shadowForce.id, move.extremeSpeed.id, move.swagger.id],
+    },
+    reward : [item.banettite, pkmn.shuppet],
+    category: 1,
+}
+
+
+areas.alolaAdventure = {
+    rotation: 7,
+    type: `event`,
+    background : `beach`,
+    level : wildAreaLevel5,
+    icon: pkmn.alolanRaichu,
+    spawns: {
+        common : [pkmn.alolanRattata, pkmn.alolanVulpix, pkmn.alolanGrimer, pkmn.alolanMeowth],
+        uncommon : [pkmn.alolanGeodude, pkmn.alolanExeggutor, pkmn.alolanMarowak],
+        rare : [pkmn.alolanDiglett, pkmn.alolanSandshrew, pkmn.alolanRaichu]
+    },
+    drops: {
+        common : [item.mysteryEgg],
+        rare : [item.mysticWater],
+    },
+    category: 2,
+}
+
+
+areas.shiningBetweenlands = {
+    rotation: 7,
+    type: `event`,
+    background : `plant`,
+    level : 95,
+    icon: pkmn.jolteon,
+    difficulty: 5,
+    uncatchable: true,
+    unlockDescription : `Defeat Master Trainer Geeta in VS to unlock`,
+    unlockRequirement : function() { return areas.vsMasterTrainerGeeta.defeated },
+    spawns: {
+        common : [pkmn.ampharos,pkmn.jolteon,pkmn.megaMawile,pkmn.Celesteela],
+    },
+    drops: {
+        common : [item.nothing],
+        uncommon : [item.brightPowder]
+    },
+    category: 2,
+}
+
+
+areas.eventMegaGardevoir = {
+    rotation: 7,
+    type: `event`,
+    name: `Gardevoir Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaGardevoir,
+    trainer: true,
+    encounter: true,
+    difficulty: tier3difficulty,
+    encounterEffect : function() {item.brightPowder.got--},
+    unlockDescription : `Requires a <img src="img/items/brightPowder.png"> Bright Powder to enter`,
+    unlockRequirement : function() { return item.brightPowder.got>0 },
+    level : 110,
+    team : {
+        slot1 : pkmn.megaGardevoir,
+        slot1Moves : [move.playNice.id,move.hyperVoice.id, move.psychic.id, move.fairyWind.id],
+    },
+    reward : [item.gardevoirite, pkmn.ralts],
+    category: 2,
+}
+
+
+areas.eventMegaAltaria = {
+    rotation: 7,
+    type: `event`,
+    name: `Altaria Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaAltaria,
+    trainer: true,
+    encounter: true,
+    difficulty: tier3difficulty,
+    encounterEffect : function() {item.brightPowder.got--},
+    unlockDescription : `Requires a <img src="img/items/brightPowder.png"> Bright Powder to enter`,
+    unlockRequirement : function() { return item.brightPowder.got>0 },
+    level : 110,
+    team : {
+        slot1 : pkmn.megaAltaria,
+        slot1Moves : [move.aromaticMist.id,move.dracoMeteor.id, move.magicalTorque.id, move.extremeSpeed.id],
+    },
+    reward : [item.altarianite, pkmn.swablu],
+    category: 2,
+}
+
+
+areas.eventDiancie = {
+    rotation: 7,
+    type: `event`,
+    name: `Underground Kingdom`,
+    background : `cave`,
+    icon: pkmn.diancie,
+    trainer: true,
+    encounter: true,
+    difficulty: tier3difficulty,
+    encounterEffect : function() {item.brightPowder.got--},
+    unlockDescription : `Requires a <img src="img/items/brightPowder.png"> Bright Powder to enter`,
+    unlockRequirement : function() { return item.brightPowder.got>0 },
+    level : 110,
+    team : {
+        slot1 : pkmn.diancie,
+        slot1Moves : [move.rockPolish.id,move.rollout.id, move.fairyWind.id, move.magnitude.id],
+    },
+    reward : [pkmn.diancie],
+    category: 2,
+}
+
+
+areas.eventMagearnaO = {
+    rotation: 7,
+    type: `event`,
+    name: `Vivid Past`,
+    background : `mountain`,
+    icon: pkmn.magearnaOriginal,
+    trainer: true,
+    encounter: true,
+    difficulty: tier4difficulty,
+    encounterEffect : function() {item.brightPowder.got-=3},
+    unlockDescription : `Requires x3 <img src="img/items/brightPowder.png"> Bright Powder to enter`,
+    unlockRequirement : function() { return item.brightPowder.got>2 },
+    level : 120,
+    team : {
+        slot1 : pkmn.magearnaOriginal,
+        slot1Moves : [move.gearUp.id,move.ironDefense.id, move.ironHead.id, move.spiritBreak.id],
+    },
+    reward : [pkmn.magearnaOriginal],
+    category: 2,
+}
+
+
+areas.eventMagearna = {
+    rotation: 7,
+    type: `event`,
+    name: `Fading Future`,
+    background : `snow`,
+    icon: pkmn.magearna,
+    trainer: true,
+    encounter: true,
+    difficulty: tier4difficulty,
+    encounterEffect : function() {item.brightPowder.got-=3},
+    unlockDescription : `Requires x3 <img src="img/items/brightPowder.png"> Bright Powder to enter`,
+    unlockRequirement : function() { return item.brightPowder.got>2 },
+    level : 120,
+    team : {
+        slot1 : pkmn.magearna,
+        slot1Moves : [move.nastyPlot.id,move.fleurCannon.id, move.flashCannon.id, move.hyperBeam.id],
+    },
+    reward : [pkmn.magearna],
+    category: 2,
+}
+
+
+areas.eventMegaDiancie = {
+    rotation: 7,
+    type: `event`,
+    name: `Diancie Mega-Showdown`,
+    background : `gym`,
+    icon: pkmn.megaDiancie,
+    trainer: true,
+    encounter: true,
+    difficulty: tier4difficulty,
+    encounterEffect : function() {item.brightPowder.got-=3},
+    unlockDescription : `Requires x3 <img src="img/items/brightPowder.png"> Bright Powder to enter`,
+    unlockRequirement : function() { return item.brightPowder.got>2 },
+    level : 120,
+    team : {
+        slot1 : pkmn.megaDiancie,
+        slot1Moves : [move.diamondStorm.id,move.spiritBreak.id, move.bodyPress.id, move.earthquake.id],
+    },
+    reward : [item.diancite, pkmn.diancie],
+    category: 2,
+}
 
 
 

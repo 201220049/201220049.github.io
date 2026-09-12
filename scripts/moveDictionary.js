@@ -1163,6 +1163,20 @@ ability.dragonMaw = {
     rarity: 3,
 }
 
+ability.clearBody = {
+    info: function() {return `Prevents all stat decreases`},
+    rarity: 3,
+}
+
+ability.magicBounce = {
+    info: function() {return `Inflicts stat decreases and status effects to the attacker aswell on the moment of application, and prevents all of them`},
+    rarity: 3,
+}
+
+ability.soulHeart = {
+    info: function() {return `Increases Special Attack by 50% when defeating a Pokemon, and increases the Damage dealt by x1.15 for every team member defeated`},
+    rarity: 3,
+}
 
 for (const i in ability){
     ability[i].id = i
@@ -5407,11 +5421,35 @@ move.morningSun = {
 move.gMaxVoltCrash = { 
     split: "physical",
     type: "electric",
-    power: 140,
+    power: 150,
     info: function() {return `Inflicts ${tagParalysis}`},
     hitEffect: function(target) { moveBuff(target,'paralysis') },
 }
 
+move.wakeupSlap = {  
+    split: "physical",
+    type: "normal",
+    power: 75,
+    info: function() {return `Power doubles if the target is Sleep`},
+    powerMod : function() { if (wildBuffs.sleep>0) { return 2} else return 1 },
+}
+
+move.diamondStorm = {  
+    split: "physical",
+    type: "rock",
+    power: 100,
+    info: function() {return `50% chance to increase Defense by 100%`},
+    hitEffect: function(target) { if (rng(0.50)) moveBuff(target,'defup2',"self") },
+}
+
+move.fleurCannon = {  
+    split: "special",
+    type: "fairy",
+    power: 160,
+    info: function() {return `Decreases Special Attack by 50%`},
+    hitEffect: function(target) { moveBuff(target,'satkdown1','self') },
+    unaffectedBy: [ability.sheerForce.id],
+}
 
 const movesAffectedByToughClaws = []
 const movesAffectedByIronFist = []

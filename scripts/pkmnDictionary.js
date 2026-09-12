@@ -13149,8 +13149,8 @@ pkmn.meloettaPirouette = {
     sdef: 77,
     spe: 128,
   },
-    hiddenAbility: ability.cacophony,
-    signature : move.relicSong
+    hiddenAbility: ability.sereneGrace,
+    signature : move.wakeupSlap
 }
 
 // 649 Genesect
@@ -14984,6 +14984,8 @@ pkmn.diancie = {
         spe: 50,
     },
     evolve: function() { return { 1: { pkmn: pkmn.megaDiancie, item: item.diancite } } },
+    hiddenAbility: ability.clearBody,
+    signature : move.diamondStorm
 }
 
 pkmn.megaDiancie = {
@@ -14996,6 +14998,8 @@ pkmn.megaDiancie = {
         sdef: 110,
         spe: 110,
     }
+    hiddenAbility: ability.magicBounce,
+    signature : move.diamondStorm
 }
 
 // 720 Hoopa
@@ -16471,7 +16475,8 @@ pkmn.magearna = {
         spe: 65,
     },
     // evolve: function() { return { 1: { pkmn: pkmn.megaMagearna, item: item.magearnite } } },
-    signature : move.gearUp
+    hiddenAbility: ability.soulHeart,
+    signature : move.fleurCannon
 }
 
 pkmn.magearnaOriginal = {
@@ -16484,6 +16489,7 @@ pkmn.magearnaOriginal = {
         sdef: 115,
         spe: 65,
     },
+    hiddenAbility: ability.soulHeart,
     signature : move.gearUp
 }
 

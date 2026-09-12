@@ -1637,6 +1637,9 @@
         "Treasure Of Ruin": "灾祸之宝",
         "Soul Asterism": "灵魂星象",
         "Noxious": "恶臭",
+        "Clear Body": "恒净之躯",
+        "Magic Bounce": "魔法镜",
+        "Soul Heart": "魂心",
 
         //招式
         "Sunny": "大晴天",
@@ -2062,6 +2065,9 @@
         "X Scissor": "十字剪",
         "Spectral Thief": "暗影偷盗",
         "G Max Volt Crash": "超极巨万雷轰顶",
+        "Wakeup Slap": "清醒巴掌",
+        "Diamond Storm": "钻石风暴",
+        "Fleur Cannon": "花朵加农炮",
         //道具
         //携带物
         "Black Belt": "黑带",

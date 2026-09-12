@@ -977,7 +977,10 @@
         '一般属性招式会变为$1属性, 且伤害 x$2'],
         [/^All moves become (.+)-Type moves, and their power is multiplied by x([\d\.]+)/i,
         '所有招式变为$1属性, 且伤害 x$2'],
-        
+        [/^Inflicts stat decreases and status effects to the attacker aswell on the moment of application, and prevents all of them/i,
+        '被施加异常状态与属性降低时, 免疫并将此异常状态和属性降低返还给攻击者'],
+        [/^Increases (.+) by 50% when defeating a Pokemon, and increases the Damage dealt by x([\d\.]+) for every team member defeated/i,
+        '击败宝可梦后, $1提高 50%，且每有一名队友倒下, 伤害 x$2'],
         //道具描述
         //持有物
         [/^([\d\.,]+) in total \(([\d\.,]+) left for next level\)$/,
@@ -1305,6 +1308,8 @@
         [/^([\s\S]*?)Wormhole Residues?([\s\S]*?)$/i, '$1虫洞残留物$2'],
         [/^([\s\S]*?)Wisdom Petals?([\s\S]*?)$/i, '$1智慧花瓣$2'],
         [/^([\s\S]*?)Red Chains?([\s\S]*?)$/i, '$1红色锁链$2'],
+        [/^([\s\S]*?)Sachet?([\s\S]*?)$/i, '$芳香口袋$2'],
+        [/^([\s\S]*?)Bright Powder?([\s\S]*?)$/i, '$闪耀粉末$2'],
         [/^([\s\S]*?)Mega-Shards?([\s\S]*?)$/i, '$1超级碎片$2'],
         [/^([\s\S]*?)Mega-Pieces?([\s\S]*?)$/i, '$1超级碎块$2'],
         [/^([\s\S]*?)Mega-Chunks?([\s\S]*?)$/i, '$1超级晶簇$2'],
@@ -1888,6 +1893,16 @@
         "Dream Plains": "梦之平原",
         "Stark Mountain": "严酷山",
         "Grasswither Shrine": "草枯祠堂",
+        "- Beauty Encounter -": "=✦ 邂逅美丽 ✦=", //轮换7
+        "Serene Sky": "静谧天空",
+        "Aromatic Meadow": "芳香草地",
+        "Nature Concert": "自然演唱会",
+        "Nature Ball": "自然舞会",
+        "Alola Adventure": "阿罗拉冒险",
+        "Shining Betweenlands": "闪耀交界地",
+        "Underground Kingdom": "地下王国",
+        "Vivid Past": "鲜艳的过去",
+        "Fading Future": "褪色的未来",
         //超级次元
         "Field Effects": "场地效果",
         "Weak Dimensional Rift": "薄弱次元裂隙",
@@ -3632,6 +3647,9 @@
         "Treasure Of Ruin": "灾祸之宝",
         "Soul Asterism": "灵魂星象",
         "Noxious": "恶臭",
+        "Clear Body": "恒净之躯",
+        "Magic Bounce": "魔法镜",
+        "Soul Heart": "魂心",
 
         //招式
         "Sunny": "大晴天",
@@ -4057,6 +4075,9 @@
         "X Scissor": "十字剪",
         "Spectral Thief": "暗影偷盗",
         "G Max Volt Crash": "超极巨万雷轰顶",
+        "Wakeup Slap": "清醒巴掌",
+        "Diamond Storm": "钻石风暴",
+        "Fleur Cannon": "花朵加农炮",
         //道具
         //携带物
         "Black Belt": "黑带",

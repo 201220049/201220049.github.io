@@ -126,7 +126,15 @@ shop.shopwisdomPetal = {
     effect: function() {item.wisdomPetal.got+=25}
 }
 
-
+shop.shopsachet = {
+    icon: item.sachet.id,
+    name: `Sachet x25`,
+    price: 10,
+    currency: item.brightPowder.id,
+    category: `goods`,
+    condition: function() {if (rotationEventCurrent==7) return true},
+    effect: function() {item.sachet.got+=25}
+}
 
 
 shop.shopblackBelt = {

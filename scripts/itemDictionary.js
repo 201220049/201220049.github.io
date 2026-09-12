@@ -903,7 +903,17 @@ item.pokeflute = {
     info: function() {return `Can be used to catch event Pokemon. Expires after event finishes`},
 }
 
+item.sachet = {
+    type: "key",
+    rotation: 7,
+    info: function() {return `Can be used to catch event Pokemon. Expires after event finishes`},
+}
 
+item.brightPowder = {
+    type: "key",
+    rotation: 7,
+    info: function() {return `Can be used to catch event Pokemon. Expires after event finishes`},
+}
 
 
 
@@ -1556,7 +1566,6 @@ item.venusaurite = {
     heldBonusPower: function() { return 1.15+(0.1*returnItemLevel(this.id)) },
     heldBonusPkmn: function() { return pkmn.megaVenusaur.id },
 }
-
 
 
 
