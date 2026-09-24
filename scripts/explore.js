@@ -3862,6 +3862,8 @@ function exploreCombatWild() {
 
         if (testAbility(`active`,  ability.levitate.id ) && move[nextMoveWild].type==="ground") totalPower = 0
         if (testAbility(`active`,  ability.thickFat.id ) && (move[nextMoveWild].type==="fire" || move[nextMoveWild].type==="ice") ) totalPower /= 2
+        if (testAbility(`active`,  ability.deltaStream.id ) && (move[nextMoveWild].type==="rock" || move[nextMoveWild].type==="electric" || move[nextMoveWild].type==="ice") ) totalPower /= 2
+
 
         for (const slot in team){
             if (testAbility(slot, ability.purifyingSalt.id) && move[nextMoveWild].type == 'ghost' ) totalPower /= 1.25
@@ -7723,6 +7725,7 @@ if (id=="mistyTerrain" && team[exploreActiveMember].item == item.mistySeed.id) w
 if (/safeguard|lightScreen|crossRoom|trickRoom|weirdRoom/.test(id) && team[exploreActiveMember].item == item.terrainExtender.id) weatherTurns += item.terrainExtender.power()
 
 if (testAbility(`active`, ability.climaTact.id)) weatherTurns += 15
+if (testAbility(`active`, ability.deltaStream.id)) weatherTurns = 0
 
 saved.weatherTimer = weatherTurns
 saved.weatherCooldown = Math.max(weatherTurns, 29) //changed from 30 to maintain constant uptime
@@ -7772,6 +7775,7 @@ function updateTeamBuffs(){
 
         if (testAbility(slot, ability.fullMetalBody.id) && /atkdown1|atkdown2|defdown1|defdown2|stakdown1|satkdown2|sdefdown1|sdefdown2|spedown1|spedown2/.test(i) ) team[slot].buffs[i] = 0
         if (testAbility(slot, ability.clearBody.id) && /atkdown1|atkdown2|defdown1|defdown2|stakdown1|satkdown2|sdefdown1|sdefdown2|spedown1|spedown2/.test(i) ) team[slot].buffs[i] = 0
+        if (testAbility(slot, ability.magicBounce.id) && /burn|freeze|confused|paralysis|poisoned|sleep|atkdown1|atkdown2|defdown1|defdown2|stakdown1|satkdown2|sdefdown1|sdefdown2|spedown1|spedown2/.test(i) ) team[slot].buffs[i] = 0
 
         const div = document.createElement("span");
         div.className = "buff-tag";
@@ -7950,7 +7954,6 @@ function moveBuff(target,buff,mod,turnOverride){
         if (testAbility(`active`, ability.icyPelt.id ) && saved.weather == "hail" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
         if (testAbility(`active`, ability.blackPelt.id ) && saved.weather == "fog" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
         if (testAbility(`active`, ability.spikyPelt.id ) && saved.weather == "electricTerrain" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
-        if (testAbility(`active`, ability.magicBounce.id ) && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
 
         if (saved.weatherTimer>0 && saved.weather=="safeguard" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
 
@@ -8000,6 +8003,8 @@ function moveBuff(target,buff,mod,turnOverride){
         if (/burn|freeze|confused|paralysis|poisoned|sleep/.test(buff) && Object.keys(wildBuffs).some(key => /burn|freeze|confused|paralysis|poisoned|sleep/.test(key) && wildBuffs[key] > 0 && key !== buff)) return
 
         if (testAbility(`active`, ability.colorSpore.id ) && /burn|freeze|confused|paralysis|poisoned|sleep|embargo/.test(buff)) affectedTurns *= 3
+        if (testAbility(`active`, ability.turboblaze.id ) && /atkup1|atkup2|defup1|defup2|satkup1|satkup2|sdefup1|sdefup2|speup1|speup2/.test(buff)) affectedTurns = 0
+
         //if (testAbility(`active`, ability.colorSpore.id ) == "nerf" && /burn|freeze|confused|paralysis|poisoned|sleep|embargo/.test(buff)) affectedTurns *= 2
 
         wildBuffs[buff] = affectedTurns
@@ -8042,7 +8047,6 @@ function moveBuff(target,buff,mod,turnOverride){
         if (testAbility(`active`, ability.icyPelt.id ) && saved.weather == "hail" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
         if (testAbility(`active`, ability.blackPelt.id ) && saved.weather == "fog" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
         if (testAbility(`active`, ability.spikyPelt.id ) && saved.weather == "electricTerrain" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
-        if (testAbility(`active`, ability.magicBounce.id ) && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
 
         if (saved.weatherTimer>0 && saved.weather=="safeguard" && saved.weatherTimer>0 && /burn|freeze|confused|paralysis|poisoned|sleep|defdown1|defdown2|atkdown1|atkdown2|sdefdown1|sdefdown2|satkdown1|satkdown2|spedown1|spedown2/.test(buff)) {return}
 

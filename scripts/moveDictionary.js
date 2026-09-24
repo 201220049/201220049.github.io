@@ -1178,6 +1178,16 @@ ability.soulHeart = {
     rarity: 3,
 }
 
+ability.turboblaze = {
+    info: function() {return `Prevents positive stat changes of enemies when the opposing Pokemon enters the battle`},
+    rarity: 3,
+}
+
+ability.deltaStream = {
+    info: function() {return `Halves damage received from Rock, Electric and Ice-type moves, and prevents weather changes`},
+    rarity: 3,
+}
+
 for (const i in ability){
     ability[i].id = i
 }
@@ -5421,7 +5431,7 @@ move.morningSun = {
 move.gMaxVoltCrash = { 
     split: "physical",
     type: "electric",
-    power: 150,
+    power: 140,
     info: function() {return `Inflicts ${tagParalysis}`},
     hitEffect: function(target) { moveBuff(target,'paralysis') },
 }
@@ -5448,6 +5458,23 @@ move.fleurCannon = {
     power: 160,
     info: function() {return `Decreases Special Attack by 50%`},
     hitEffect: function(target) { moveBuff(target,'satkdown1','self') },
+    unaffectedBy: [ability.sheerForce.id],
+}
+
+move.iceBurn = {  
+    split: "special",
+    type: "ice",
+    power: 160,
+    info: function() {return `50% chance to inflict ${tagBurn}`},
+    hitEffect: function(target) { if (rng(0.50)) moveBuff(target,'burn') },
+}
+
+move.dragonAscent = {  
+    split: "physical",
+    type: "flying",
+    power: 180,
+    info: function() {return `Decreases Defense and Special Defense by 50%`},
+    hitEffect: function(target) { moveBuff(target,'defdown1','self'); moveBuff(target,'sdefdown1','self') },
     unaffectedBy: [ability.sheerForce.id],
 }
 

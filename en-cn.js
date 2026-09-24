@@ -880,7 +880,7 @@
         [/^Increases Cross-Power by \+([\d\.]+)/i,
         '"交叉之力"加成 +$1'],
         [/^Moves always hit regardless of the type/i,
-        '招式必定命中'],
+        '任何属性的招式无视免疫关系，必定命中'],
         [/^Damage received is halved when over (\d+)% HP/i,
         '生命高于 $1% 时, 受到的伤害减半'],
         [/^Increases (.+) by (\d+)% if afflicted with a status effect, and nullifies the stat redution of the condition/i,
@@ -981,6 +981,11 @@
         '被施加异常状态与属性降低时, 免疫并将此异常状态和属性降低返还给攻击者'],
         [/^Increases (.+) by 50% when defeating a Pokemon, and increases the Damage dealt by x([\d\.]+) for every team member defeated/i,
         '击败宝可梦后, $1提高 50%，且每有一名队友倒下, 伤害 x$2'],
+        [/^Prevents positive stat changes of enemies when the opposing Pokemon enters the battle/i,
+        '对手宝可梦登场后，防止其所有能力值提高'],
+        [/^Halves damage received from Rock, Electric and Ice-type moves, and prevents weather changes/i,
+        '受到岩石、电和冰系招式伤害减半，并取消所有天气效果'],
+
         //道具描述
         //持有物
         [/^([\d\.,]+) in total \(([\d\.,]+) left for next level\)$/,
@@ -3650,6 +3655,8 @@
         "Clear Body": "恒净之躯",
         "Magic Bounce": "魔法镜",
         "Soul Heart": "魂心",
+        "Turboblaze": "涡轮火焰",
+        "Delta Stream": "德尔塔气流",
 
         //招式
         "Sunny": "大晴天",
@@ -4078,6 +4085,9 @@
         "Wakeup Slap": "清醒巴掌",
         "Diamond Storm": "钻石风暴",
         "Fleur Cannon": "花朵加农炮",
+        "Ice Burn": "极寒冷焰",
+        "Dragon Ascent": "画龙点睛",
+
         //道具
         //携带物
         "Black Belt": "黑带",

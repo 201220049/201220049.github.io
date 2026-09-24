@@ -8550,6 +8550,8 @@ pkmn.megaRayquaza = {
         sdef: 120,
         spe: 115,
     },
+    hiddenAbility: ability.deltaStream,
+    signature : move.dragonAscent,
     lore: `Ascending the atmosphere, its reach extending into the upper skies. Protecting not only the world below but the space above, guarding against threats from beyond.`
 }
 
@@ -13096,7 +13098,9 @@ pkmn.kyuremWhite = {
         satk: 180,
         sdef: 100,
         spe: 110,
-    }
+    },
+    hiddenAbility: ability.turboblaze,
+    signature : move.iceBurn
 }
 
 // 647 Keldeo

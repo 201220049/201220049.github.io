@@ -6414,7 +6414,7 @@ areas.dimensionKyuremWhite = {
         slot1 : pkmn.kyuremWhite,
         slot1Moves : [move.blueFlare.id,move.iceBeam.id, move.dragonPulse.id, move.thunder.id],
     },
-    reward : [pkmn.magikarp],
+    reward : [pkmn.kyuremWhite, item.whiteApricorn],
     fieldEffect : [field.noMercy.id, field.stealthRocks.id, field.wonderWard.id ],
     skills : {3 : skill.ironWill.id, 2 : skill.suddenDeath.id, 1 : skill.demoralisingRoar.id}
 }
@@ -6431,7 +6431,7 @@ areas.dimensionMegaRayquaza = {
         slot1 : pkmn.megaRayquaza,
         slot1Moves : [move.flareBlitz.id, move.fly.id, move.dracoMeteor.id, move.earthquake.id],
     },
-    reward : [pkmn.magikarp],
+    reward : [pkmn.megaRayquaza, item.whiteApricorn],
     fieldEffect : [field.noMercy.id, field.stealthRocks.id, field.ironBody.id, field.wonderWard.id ],
     skills : {3 : skill.omniboost.id, 2 : skill.suddenDeath.id, 1 : skill.demoralisingRoar.id}
 }
