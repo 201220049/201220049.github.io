@@ -4308,12 +4308,12 @@ areas.eventMegaAltaria = {
 }
 
 
-areas.eventDiancie = {
+areas.eventJirachi = {
     rotation: 7,
     type: `event`,
-    name: `Underground Kingdom`,
-    background : `cave`,
-    icon: pkmn.diancie,
+    name: `Wishing Star`,
+    background : `space`,
+    icon: pkmn.jirachi,
     trainer: true,
     encounter: true,
     difficulty: tier3difficulty,
@@ -4322,20 +4322,20 @@ areas.eventDiancie = {
     unlockRequirement : function() { return item.brightPowder.got>0 },
     level : 110,
     team : {
-        slot1 : pkmn.diancie,
-        slot1Moves : [move.rockPolish.id,move.rollout.id, move.fairyWind.id, move.magnitude.id],
+        slot1 : pkmn.jirachi,
+        slot1Moves : [move.flashCannon.id,move.psychic.id, move.doomDesire.id, move.futureSight.id],
     },
-    reward : [pkmn.diancie],
+    reward : [pkmn.jirachi],
     category: 2,
 }
 
 
-areas.eventMagearnaO = {
+areas.eventMegaMagearnaO = {
     rotation: 7,
     type: `event`,
     name: `Vivid Past`,
     background : `mountain`,
-    icon: pkmn.magearnaOriginal,
+    icon: pkmn.megaMagearnaOriginal,
     trainer: true,
     encounter: true,
     difficulty: tier4difficulty,
@@ -4344,20 +4344,20 @@ areas.eventMagearnaO = {
     unlockRequirement : function() { return item.brightPowder.got>2 },
     level : 120,
     team : {
-        slot1 : pkmn.magearnaOriginal,
+        slot1 : pkmn.megaMagearnaOriginal,
         slot1Moves : [move.gearUp.id,move.ironDefense.id, move.ironHead.id, move.spiritBreak.id],
     },
-    reward : [pkmn.magearnaOriginal],
+    reward : [item.magearnite, pkmn.magearnaOriginal],
     category: 2,
 }
 
 
-areas.eventMagearna = {
+areas.eventMegaMagearna = {
     rotation: 7,
     type: `event`,
     name: `Fading Future`,
     background : `snow`,
-    icon: pkmn.magearna,
+    icon: pkmn.megaMagearna,
     trainer: true,
     encounter: true,
     difficulty: tier4difficulty,
@@ -4366,10 +4366,10 @@ areas.eventMagearna = {
     unlockRequirement : function() { return item.brightPowder.got>2 },
     level : 120,
     team : {
-        slot1 : pkmn.magearna,
+        slot1 : pkmn.megaMagearna,
         slot1Moves : [move.nastyPlot.id,move.fleurCannon.id, move.flashCannon.id, move.hyperBeam.id],
     },
-    reward : [pkmn.magearna],
+    reward : [item.magearnite, pkmn.magearna],
     category: 2,
 }
 

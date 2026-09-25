@@ -1567,7 +1567,13 @@ item.venusaurite = {
     heldBonusPkmn: function() { return pkmn.megaVenusaur.id },
 }
 
-
+item.magearnite = {
+    
+    evo: true,
+    info: function() {return `Use: Evolve a certain Pokemon<br>When held: Increases the damage dealt by ${format(this.heldBonusPkmn())} by x${this.heldBonusPower().toFixed(2)}`},
+    heldBonusPower: function() { return 1.15+(0.1*returnItemLevel(this.id)) },
+    heldBonusPkmn: function() { return pkmn.megaMagearna.id||pkmn.megaMagearnaOriginal.id },
+}
 
 
 
@@ -1766,7 +1772,13 @@ item.wateriumZ = {
     zType: `water`
 }
 
-
+item.eeviumZ = {
+    type: "held",
+    sort: "gem",
+    info: function() {return `When held: Regardless of the holder, every ${this.power()} turns, executes a coordinated Water-type attack if the holder isnt fainted. Whether its physical or special depends on the highest stat of the holder (If they are equal, it will be random, but deal x1.25 more damage). This attack benefits from holder stats and typing but not from their abilities nor buffs. Only one Z crystal can be equipped per team`},
+    power : function() { return 20-(2*returnItemLevel(this.id))},
+    zType: `normal`
+}
 
 
 //normal

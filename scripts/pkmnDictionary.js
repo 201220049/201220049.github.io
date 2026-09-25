@@ -16478,7 +16478,7 @@ pkmn.magearna = {
         sdef: 115,
         spe: 65,
     },
-    // evolve: function() { return { 1: { pkmn: pkmn.megaMagearna, item: item.magearnite } } },
+    evolve: function() { return { 1: { pkmn: pkmn.megaMagearna, item: item.magearnite } } },
     hiddenAbility: ability.soulHeart,
     signature : move.fleurCannon
 }
@@ -16493,6 +16493,7 @@ pkmn.magearnaOriginal = {
         sdef: 115,
         spe: 65,
     },
+    evolve: function() { return { 1: { pkmn: pkmn.megaMagearnaOriginal, item: item.magearnite } } },
     hiddenAbility: ability.soulHeart,
     signature : move.gearUp
 }
@@ -16508,7 +16509,9 @@ pkmn.megaMagearna = {
         satk: 170,
         sdef: 115,
         spe: 95,
-    }
+    },
+    hiddenAbility: ability.soulHeart,
+    signature : move.fleurCannon
 }
 
 pkmn.megaMagearnaOriginal = {
@@ -16520,7 +16523,9 @@ pkmn.megaMagearnaOriginal = {
         satk: 170,
         sdef: 115,
         spe: 95,
-    }
+    },
+    hiddenAbility: ability.soulHeart,
+    signature : move.gearUp
 }
 
 

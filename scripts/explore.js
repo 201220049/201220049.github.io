@@ -7728,6 +7728,9 @@ if (testAbility(`active`, ability.climaTact.id)) weatherTurns += 15
 if (testAbility(`active`, ability.deltaStream.id)) weatherTurns = 0
 
 saved.weatherTimer = weatherTurns
+
+if (testAbility(`active`, ability.deltaStream.id)) {saved.weatherTimer = 0}
+
 saved.weatherCooldown = Math.max(weatherTurns, 29) //changed from 30 to maintain constant uptime
 updateWildBuffs()
 

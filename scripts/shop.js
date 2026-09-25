@@ -36,6 +36,12 @@ shop.shopabilityCapsule = {
     category: `goods`,
 }
 
+shop.shopeeviumZ = {
+    icon: item.eeviumZ.id,
+    price: 5,
+    category: `goods`,
+}
+
 shop.shopheartScale = {
     icon: item.heartScale.id,
     price: 5,
@@ -1563,7 +1569,7 @@ function assignShopApricorn(){
 
     for (const i in item){
         if (item[i].type !== "memory") continue
-        if (item[i].rarity == "rare" && rng(0.1)) memoryPool.push(i)
+        if (item[i].rarity == "rare" && rng(0.2)) memoryPool.push(i)
         if (item[i].rarity == "common") memoryPool.push(i)
 
         if (item[i].rarity == "rare") memoryPoolWhite.push(i)
@@ -1573,7 +1579,7 @@ function assignShopApricorn(){
 
 
     saved.shopApricornMemoryRotation = arrayPick(memoryPool,9)
-    saved.shopApricornMemoryRotationWhite = arrayPick(memoryPoolWhite,3)
+    saved.shopApricornMemoryRotationWhite = arrayPick(memoryPoolWhite,5)
 
 
 

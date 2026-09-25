@@ -985,6 +985,8 @@
         '对手宝可梦登场后，防止其所有能力值提高'],
         [/^Halves damage received from Rock, Electric and Ice-type moves, and prevents weather changes/i,
         '受到岩石、电和冰系招式伤害减半，并取消所有天气效果'],
+        [/^Temporarily changes the type of the user corresponding to the weather, and increases Speed by 75%/i,
+        '根据场上天气临时改变自身属性（与天气图标颜色对应），并使速度提高 75%'],
 
         //道具描述
         //持有物
@@ -1905,7 +1907,7 @@
         "Nature Ball": "自然舞会",
         "Alola Adventure": "阿罗拉冒险",
         "Shining Betweenlands": "闪耀交界地",
-        "Underground Kingdom": "地下王国",
+        "Wishing Star": "许愿星",
         "Vivid Past": "鲜艳的过去",
         "Fading Future": "褪色的未来",
         //超级次元

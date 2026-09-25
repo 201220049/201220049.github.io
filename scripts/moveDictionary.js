@@ -4131,6 +4131,15 @@ move.batonPass = {
     type: "normal",
     power: 0,
     info: function() {return `User transfers all of its stat changes and status to a the entire team and faints. This move can only be present once per team`},
+    castEffect: function(target) {
+        if (team[exploreActiveMember].item == item.eeviumZ.id && team[exploreActiveMember].pkmn.id == pkmn.eevee.id) {
+            moveBuff(target,'satkup2',"self");
+            moveBuff(target,'atkup2',"self");
+            moveBuff(target,'defup2',"self");
+            moveBuff(target,'sdefup2',"self");
+            moveBuff(target,'speup2',"self");
+            }
+    },
     hitEffect: function(target) { 
     for (const member in team){
         for (const i in team[exploreActiveMember].buffs){
