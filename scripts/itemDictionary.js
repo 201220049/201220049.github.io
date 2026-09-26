@@ -1782,7 +1782,7 @@ item.wateriumZ = {
 item.eeviumZ = {
     type: "held",
     sort: "gem",
-    info: function() {return `When held: Similar to normaliumZ. When Eevee held: Change move Baton Pass to Extreme Evoboost`},
+    info: function() {return `When held: Similar to Normalium Z. When Eevee held: Change move Baton Pass to Extreme Evoboost`},
     power : function() { return 20-(2*returnItemLevel(this.id))},
     zType: `normal`
 }
