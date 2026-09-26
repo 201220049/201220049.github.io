@@ -810,8 +810,8 @@
         '给我方全员'],
         [/This move has changed to (.+)/i,
         '招式已转变为 $1'],
-        [/Increase All Stats by (\d+)%/i,
-        '使自身的所有能力提高 $1%'],
+        [/: Increase All Stats by (\d+)%/i,
+        '：使自身的所有能力提高 $1%'],
 
         //特性描述
         [/^When slotted as a non-hidden ability: Turns reduced to x([\d\.]+)/i,
