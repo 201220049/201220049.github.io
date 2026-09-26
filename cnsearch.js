@@ -2165,6 +2165,7 @@
         "Poisonium Z": "毒Z",
         "Rockium Z": "岩石Z",
         "Waterium Z": "水Z",
+        "Eevium Z": "伊布Z",
 
         //树果, 岩石
         "Charti Berry": "草蚕果",
