@@ -808,7 +808,7 @@
         '使自身的属性临时变为第一个招式槽的属性, 且速度提高 75%'],
         [/^ to the entire team/i,
         '给我方全员'],
-        [/^This move has changed to Extreme Evoboost: Increase All Stats by 100%/i,
+        [/This move has changed to Extreme Evoboost: Increase All Stats by 100%/i,
         '招式已转变为 九彩升华齐聚顶：使自身的所有能力提高 100%'],
 
         //特性描述
