@@ -36,12 +36,6 @@ shop.shopabilityCapsule = {
     category: `goods`,
 }
 
-shop.shopeeviumZ = {
-    icon: item.eeviumZ.id,
-    price: 5,
-    category: `goods`,
-}
-
 shop.shopheartScale = {
     icon: item.heartScale.id,
     price: 5,
@@ -409,6 +403,12 @@ shop.shopleftovers = {
     category: `held`,
 }
 
+shop.shopeeviumZ = {
+    icon: item.eeviumZ.id,
+    price: 3,
+    currency: item.normaliumZ.id,
+    category: `held`,
+}
 
 shop.shopwaterStone = {
     icon: item.waterStone.id,

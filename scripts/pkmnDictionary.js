@@ -16493,7 +16493,7 @@ pkmn.magearnaOriginal = {
         sdef: 115,
         spe: 65,
     },
-    evolve: function() { return { 1: { pkmn: pkmn.megaMagearnaOriginal, item: item.magearnite } } },
+    evolve: function() { return { 1: { pkmn: pkmn.megaMagearnaOriginal, item: item.magearniteO } } },
     hiddenAbility: ability.soulHeart,
     signature : move.gearUp
 }

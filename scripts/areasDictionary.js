@@ -4347,7 +4347,7 @@ areas.eventMegaMagearnaO = {
         slot1 : pkmn.megaMagearnaOriginal,
         slot1Moves : [move.gearUp.id,move.ironDefense.id, move.ironHead.id, move.spiritBreak.id],
     },
-    reward : [item.magearnite, pkmn.magearnaOriginal],
+    reward : [item.magearniteO, pkmn.magearnaOriginal],
     category: 2,
 }
 

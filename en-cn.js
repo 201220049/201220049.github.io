@@ -808,6 +808,8 @@
         '使自身的属性临时变为第一个招式槽的属性, 且速度提高 75%'],
         [/^ to the entire team/i,
         '给我方全员'],
+        [/^Move has changed to (.+):/i,
+        '招式已转变为 $1 ：'],
         
         //特性描述
         [/^When slotted as a non-hidden ability: Turns reduced to x([\d\.]+)/i,
@@ -1052,6 +1054,9 @@
         '持有时: 受到的伤害 ÷$1。不受隐形岩的场地效果的影响'],
         [/When held: Regardless of the holder, every (\d+) turns, executes a coordinated (.+)-type attack if the holder isnt fainted. Whether its physical or special depends on the highest stat of the holder \(If they are equal, it will be random, but deal x1.25 more damage\). This attack benefits from holder stats and typing but not from their abilities nor buffs. Only one Z crystal can be equipped per team/i,
         '持有时: 每隔 $1 回合, 如果持有者未倒下, 则使用 $2属性 的协同Z招式。Z招式的类型取决于持有者的最高进攻能力值 (如果物攻和特攻相同, 则招式类型随机, 但伤害 x1.25)。Z招式的威力受持有者的能力值、个体值、等级影响, 但不受特性或能力值提升效果的影响。每个队伍只允许携带 1 个 Z 纯晶'],
+        [/When held: When held: Similar to (.+). When (.+) held: Change move (.+) to (.+)/i,
+        '持有时: 主要效果同 $1 。若持有者是 $2 ，将招式 $3 变换为 $4 。'],
+
         //岩石, 种子
         [/^When held: Increases the duration of/i,
         '持有时: 持有者改变的'],
@@ -3944,6 +3949,7 @@
         "Aurora Punch": "极光拳",
         "Acupressure": "点穴",
         "Baton Pass": "接棒",
+        "Extreme Evoboost": "九彩升华齐聚顶",
         "Belly Drum": "腹鼓",
         "Boomburst": "爆音波",
         "Egg Bomb": "炸蛋",
@@ -4311,6 +4317,7 @@
         "Golisopodite": "具甲武者进化石",
         "Drampaite": "老翁龙进化石",
         "Magearnite": "玛机雅娜进化石",
+        "MagearniteO": "玛机雅娜原型进化石",
         "Zeraorite": "捷拉奥拉进化石",
         "Falinksite": "列阵兵进化石",
         "Scovillainite": "狠辣椒进化石",
