@@ -4132,7 +4132,7 @@ move.batonPass = {
     power: 0,
     info: function() {
         if (team[exploreActiveMember].item == item.eeviumZ.id && team[exploreActiveMember].pkmn.id == pkmn.eevee.id) {
-            return `Move has changed to Extreme Evoboost: Increase All Stats by 100%`
+            return `This move has changed to Extreme Evoboost: Increase All Stats by 100%`
         
         }
         else {
