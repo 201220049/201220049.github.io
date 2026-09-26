@@ -1054,7 +1054,7 @@
         '持有时: 受到的伤害 ÷$1。不受隐形岩的场地效果的影响'],
         [/When held: Regardless of the holder, every (\d+) turns, executes a coordinated (.+)-type attack if the holder isnt fainted. Whether its physical or special depends on the highest stat of the holder \(If they are equal, it will be random, but deal x1.25 more damage\). This attack benefits from holder stats and typing but not from their abilities nor buffs. Only one Z crystal can be equipped per team/i,
         '持有时: 每隔 $1 回合, 如果持有者未倒下, 则使用 $2属性 的协同Z招式。Z招式的类型取决于持有者的最高进攻能力值 (如果物攻和特攻相同, 则招式类型随机, 但伤害 x1.25)。Z招式的威力受持有者的能力值、个体值、等级影响, 但不受特性或能力值提升效果的影响。每个队伍只允许携带 1 个 Z 纯晶'],
-        [/When held: When held: Similar to (.+). When (.+) held: Change move (.+) to (.+)/i,
+        [/When held: Similar to (.+). When (.+) held: Change move (.+) to (.+)/i,
         '持有时: 主要效果同 $1 。若持有者是 $2 ，将招式 $3 变换为 $4 。'],
 
         //岩石, 种子
